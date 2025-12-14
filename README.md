@@ -63,6 +63,10 @@ npx wrangler pages deploy . --project-name=my-year-in-review
 The `data.js` file contains the `WRAP_UP_DATA` object. You can configure global metadata and the list of slides here.
 
 #### Global Properties
+In `meta`, you can set:
+- **`slide_duration`**: Time in milliseconds (e.g., `5000` for 5s).
+- **`theme_color`**: App accent color.
+
 In each slide object, you can set:
 - **`bg_color`**: Background color (Hex code `"#000"` or name).
 - **`text_color`**: Text color (Hex code `"#fff"` or name).
