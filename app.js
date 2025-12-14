@@ -231,6 +231,15 @@ class WrapUpApp {
                     </div>
                 </div>
             `;
+        } else if (data.type === 'photo') {
+            html = `
+                <div class="slide active slide-photo" style="background-image: url('${data.image}')">
+                    <div class="slide-content-wrapper animate-in">
+                        <h1>${data.title}</h1>
+                        <p>${data.subtitle || ''}</p>
+                    </div>
+                </div>
+            `;
         } else {
             // Fallback
             html = `

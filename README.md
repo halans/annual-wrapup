@@ -111,6 +111,19 @@ Used to show a ranking (e.g., Top Songs, Top Friends).
 }
 ```
 
+**4. Photo Slide (`type: "photo"`)**
+Used to display a full-screen background image with overlay text.
+- **`image`**: URL to the image (can be local or remote).
+- **`title`**: Overlay title.
+
+```javascript
+{
+    "type": "photo",
+    "title": "Best Memory",
+    "image": "https://example.com/photo.jpg"
+}
+```
+
 ### Changing Colors and Fonts
 Global styles are defined in `style.css` using CSS variables.
 

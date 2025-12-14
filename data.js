@@ -31,6 +31,13 @@ const WRAP_UP_DATA = {
             "items": ["JavaScript", "Python", "Rust", "CSS", "HTML"]
         },
         {
+            "id": "memories",
+            "type": "photo",
+            "title": "Best Memory",
+            "subtitle": "Coding late into the night 🌙",
+            "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80"
+        },
+        {
             "id": "outro",
             "type": "intro",
             "bg_color": "#000000",
