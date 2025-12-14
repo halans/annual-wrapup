@@ -2,7 +2,8 @@ const WRAP_UP_DATA = {
     "meta": {
         "title": "2025 Wrapped",
         "user_name": "Dev",
-        "theme_color": "#BB86FC"
+        "theme_color": "#BB86FC",
+        "slide_duration": 4000
     },
     // We will expand these slides as we implement the Core Engine
     "slides": [

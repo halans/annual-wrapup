@@ -26,7 +26,7 @@ class WrapUpApp {
             nextZone: document.getElementById('next-zone'),
         };
         this.timer = null; // The setTimeout for the next slide
-        this.slideDuration = 5000; // Default 5 seconds per slide
+        this.slideDuration = (data.meta && data.meta.slide_duration) ? data.meta.slide_duration : 5000; // Default 5 seconds
         this.isPaused = false;
     }
 
