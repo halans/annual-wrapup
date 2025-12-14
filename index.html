@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-au">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2025 Wrap-Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container" class="app-container">
+        <!-- Progress Bars -->
+        <div id="progress-container" class="progress-container"></div>
+
+        <!-- Header / Navigation items could go here -->
+        <div class="top-bar">
+            <span class="brand">2025 Unwrapped</span>
+            <button id="close-btn" class="icon-btn" aria-label="Close">✕</button>
+        </div>
+
+        <!-- Main Slide Content -->
+        <main id="slide-container" class="slide-container">
+            <!-- Content injected by JS -->
+            <div class="loading">Loading the year...</div>
+        </main>
+
+        <!-- Tap Zones for Navigation -->
+        <div id="prev-zone" class="tap-zone left" aria-label="Previous Slide"></div>
+        <div id="next-zone" class="tap-zone right" aria-label="Next Slide"></div>
+    </div>
+
+    <!-- Data and Logic -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

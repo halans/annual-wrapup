@@ -1,0 +1,318 @@
+:root {
+    /* Color Palette - Cyber/Vibrant Dark Mode matches "Wrap-Up" aesthetic */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #BB86FC;
+    --secondary-color: #03DAC6;
+    --progress-bar-bg: rgba(255, 255, 255, 0.3);
+    --progress-bar-fill: #ffffff;
+
+    /* Typography */
+    --font-main: 'Outfit', sans-serif;
+
+    /* Layout */
+    --max-width: 960px;
+    /* Wider for Tablet/Desktop as requested */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #000;
+    /* Darker than card for desktop view */
+    font-family: var(--font-main);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    max-width: var(--max-width);
+    background-color: var(--bg-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* On desktop, give it a card look */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s ease;
+}
+
+/* On mobile, force full height */
+@media (max-width: 480px) {
+    .app-container {
+        max-width: 100%;
+        border-radius: 0;
+    }
+}
+
+/* Progress Bars */
+.progress-container {
+    padding: 12px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    gap: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.progress-bar-wrapper {
+    flex: 1;
+    height: 4px;
+    background-color: var(--progress-bar-bg);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 30;
+    /* Ensure clickable above other elements */
+    transition: transform 0.2s;
+    /* Subtle feedback */
+}
+
+.progress-bar-wrapper:hover {
+    transform: scaleY(1.5);
+    /* Make it easier to see which one you are hovering */
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--progress-bar-fill);
+    width: 0%;
+    border-radius: 2px;
+}
+
+.progress-bar.active {
+    width: 0%;
+    /* Will be animated */
+}
+
+.progress-bar.completed {
+    width: 100%;
+}
+
+/* Top Bar */
+.top-bar {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.brand {
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Tap Zones */
+.tap-zone {
+    position: absolute;
+    top: 50px;
+    /* Below progress bar header */
+    bottom: 0;
+    width: 30%;
+    z-index: 20;
+    /* opacity: 0.1; background: red; /* Debug */
+}
+
+.tap-zone.left {
+    left: 0;
+}
+
+.tap-zone.right {
+    right: 0;
+    width: 70%;
+    /* Make forward easier to tap */
+}
+
+/* Slide Container */
+.slide-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    padding: 80px 20px 40px;
+    /* More top padding for header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 5;
+}
+
+/* Typography styles */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Animation Utilities */
+.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- NEW SLIDE STYLES --- */
+
+/* Slide Content Wrapper to centering */
+.slide-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Intro / Outro Slide */
+.slide-intro h1 {
+    font-size: clamp(3rem, 12vw, 4rem);
+    background: -webkit-linear-gradient(45deg, #fff, #ffffffaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Fallback for some browsers */
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.slide-intro p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Big Stat Slide */
+.slide-stat .stat-value {
+    font-size: clamp(3rem, 15vw, 6rem);
+    /* Reduced slightly to fit larger numbers */
+    word-break: break-word;
+    /* Ensure super long numbers wrap if needed */
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-weight: 800;
+    line-height: 1;
+    margin: 20px 0;
+    /* Removed text-shadow and gradient for better legibility */
+    color: inherit;
+}
+
+.slide-stat .stat-label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Top List Slide */
+.slide-list {
+    align-items: flex-start;
+}
+
+.slide-list h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+    font-weight: 800;
+}
+
+.list-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transform-origin: center;
+}
+
+.list-rank {
+    font-size: 1rem;
+    color: var(--bg-color);
+    /* Uses current slide bg color if inherited, or hardcode */
+    color: #000;
+    background: rgba(255, 255, 255, 0.9);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
