@@ -32,9 +32,20 @@ class WrapUpApp {
 
     init() {
         console.log("Initializing with", this.slides.length, "slides");
+        this.preloadImages();
         this.setupNavigation();
         this.renderProgressBars();
         this.showSlide(0);
+    }
+
+    preloadImages() {
+        this.slides.forEach(slide => {
+            if (slide.type === 'photo' && slide.image) {
+                const img = new Image();
+                img.src = slide.image;
+                console.log("Preloading:", slide.image);
+            }
+        });
     }
 
     setupNavigation() {
