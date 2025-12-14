@@ -29,7 +29,7 @@ You can run this project directly on your machine:
 This project is a static site, making it perfect for Cloudflare Pages.
 
 ### Option 1: Git Integration (Recommended)
-1. Push this code to a GitHub/GitLab repository.
+1. Clone this project https://github.com/halans/annual-wrapup.git and push it to your Git repository.
 2. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
 3. Go to **Workers & Pages** > **Create Application** > **Pages** > **Connect to Git**.
 4. Select your repository.
@@ -136,3 +136,6 @@ Edit the `:root` variables in `style.css`:
 ### Adding New Slide Types
 1. **HTML/CSS**: Create a new layout class in `style.css` (e.g., `.slide-photo`).
 2. **JS**: Update `renderSlideContent` in `app.js` to handle your new `type` (e.g., `if (data.type === 'photo') ...`).
+
+
+Created with Google Antigravity.
